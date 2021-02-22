@@ -59,13 +59,27 @@ var generatePassword = function() {
             }
         }
       }
-      
     }
   }
-
+function passwordLength () {
+  window.alert("How long would you like your password to be? Must be between 8-128 characters.");
+  var passwordLength = parseInt(window.prompt("Please enter password length."));
+  if (passwordLength < 8 || passwordLength > 128) {
+    window.alert("Please enter a valid number.");
+    passwordLength();
+  } else if (!passwordLength) {
+    window.alert("Please enter valid number.")
+    passwordLength();
+  } else {
+    window.alert("You have entered: " + passwordLength + "\n Password wil now be generated.");
+    return passwordLength;
+  }
+}
+function generatePasswordRandom(userInput, passwordLength) {
+  
+}
 
 }
-var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
 function writePassword() {
