@@ -29,7 +29,7 @@ var generatePassword = function() {
 
   while(validInput) {
     userInput = window.prompt("Choose criteria for your password (you may select more than one): 1=lowercase 2=uppercase 3=numeric 4=special characters.\n");
-    if (userInput) {
+    if (!userInput) {
       window.alert("If you wish to exit this application, please close the password generator tab in your browser.")
       generatePassword();
     } else if (userInput) {
@@ -76,7 +76,31 @@ function passwordLength () {
   }
 }
 function generatePasswordRandom(userInput, passwordLength) {
-  
+  var randomValue = 0;
+  var counter = userInput.length
+  var userCount = userInput.length
+  var finalPassword = "";
+
+  for (var i = 0; i < userInput.length; i++) {
+    var aCriteria = userInput[i];
+    if (aCriteria === "1") {
+      randomValue = Math.floor(Math.random() * 26);
+      finalPassword += passwordCriteria.lowercase.criteria[randomValue];
+
+    } else if (aCriteria === "2") {
+      randomValue = Math.floor(Math.random() * 26);
+      finalPassword += passwordCriteria.uppercase.criteria[randomValue];
+    
+    } else if (aCriteria === "3") {
+      randomValue = Math.floor(Math.random() * 10);
+      finalPassword += passwordCriteria.numeric.criteria[randomValue];
+    
+    } else if (aCriteria === "4") {
+      randomValue = Math.floor(Math.random() * 31);
+      finalPassword += passwordCriteria.symbols.criteria[randomValue];
+    }
+  }
+
 }
 
 }
